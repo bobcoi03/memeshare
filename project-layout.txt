@@ -8,12 +8,9 @@ MEMESHARE
 │   ├── templates/
 │   │   ├── base.html
 │   │   ├── auth/
-│   │   │   ├── login.html
-│   │   │   └── register.html
-│   │   └── blog/
-│   │       ├── create.html
-│   │       ├── index.html
-│   │       └── update.html
+│   │       ├── login.html
+│   │       └── register.html
+│   │   
 │   └── static/
 │       └── style.css
 ├── tests/
