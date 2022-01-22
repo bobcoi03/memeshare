@@ -1,13 +1,13 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template
 
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'app.mysql'),
+        DATABASE=os.path.join(app.instance_path, 'app.sqlite3'),
     )
 
     if test_config is None:
@@ -23,9 +23,21 @@ def create_app(test_config=None):
     except OSError:
         pass
 
+    '''
+        initialize db
+    '''
+    from . import db
+    db.init_app(app)
+
+    '''
+        Register Blueprint from auth.py
+    '''
+    from . import auth
+    app.register_blueprint(auth.bp)
+
     # a simple page that says hello
     @app.route('/')
     def hello():
-        return render_template('welcome.html')
+        return redirect('auth/login')
 
     return app
