@@ -1,6 +1,7 @@
 import os
 
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, url_for
+from graphviz import render
 
 def create_app(test_config=None):
     # create and configure the app
@@ -30,14 +31,10 @@ def create_app(test_config=None):
     db.init_app(app)
 
     '''
-        Register Blueprint from auth.py
+        Register Blueprint from auth.py & site.py
     '''
-    from . import auth
+    from . import auth, site
     app.register_blueprint(auth.bp)
-
-    # a simple page that says hello
-    @app.route('/')
-    def hello():
-        return redirect('auth/login')
+    app.register_blueprint(site.bp)
 
     return app
