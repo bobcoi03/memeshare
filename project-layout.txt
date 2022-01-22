@@ -1,16 +1,18 @@
 MEMESHARE
-├── flaskr/
+├── app/
 │   ├── __init__.py
 │   ├── db.py
 │   ├── schema.sql
 │   ├── auth.py
-│   ├── blog.py
+│   ├── site.py
 │   ├── templates/
-│   │   ├── base.html
+│   │   ├── site/
+|   |   |   |──home.html
+|   |   |
 │   │   ├── auth/
 │   │       ├── login.html
 │   │       └── register.html
-│   │   
+|   |
 │   └── static/
 │       └── style.css
 ├── tests/
