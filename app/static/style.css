@@ -1734,6 +1734,14 @@ video {
   --divide-opacity: 1;
 }
 
+.dot {
+  height: 3px;
+  width: 3px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
