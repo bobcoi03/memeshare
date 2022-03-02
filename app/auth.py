@@ -1,5 +1,5 @@
 """
-    Handles login requests
+    Handles login requests, general authentication, account creation
 """
 
 import functools
