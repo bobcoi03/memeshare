@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MiMi</title>
+        <link rel="stylesheet" href="../static/style.css">
+        <link rel="shortcut icon" href="https://user-images.githubusercontent.com/73644202/150535491-d3ada2b9-893d-42f3-a990-f8e5aabee260.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    	<div class="main">
+            <nav class="bg-white">
+                <div class="container flex flex-row items-center">
+                    <a href="/" class="flex px-2">
+                        <span class="self-center text-lg font-semibold whitespace-nowrap text-blue-400 hover:text-black">MiMi</span>
+                    </a>
+                    <form class="flex">
+                        <div class="relative text-gray-600 focus-within:text-gray-400">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                              <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                              </button>
+                            </span>
+                            <input type="search" name="q" class="py-2 text-sm text-white bg-white rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900 w-64" placeholder="Search..." autocomplete="off">
+                          </div>
+                    </form>
+                    <!--Profile Pic-->
+                    <div class="pt-1 absolute right-0" id="profile-icon">
+                        <div>
+                          <button onclick="toggle_profile_dropdown_menu()" type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                            <span class="sr-only">Open user menu</span>
+                            <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                          </button>
+                        </div>
+                        <!--
+                        Dropdown menu
+                        -->
+                        <div id="profile-dropdown-menu" style="display:none;z-index: 1;" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                            <!-- Active: "bg-gray-100", Not Active: "" -->
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+                            <a href="/random-memes" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Random Memes</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+                            <a href="/auth/logout" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                          </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="flex flex-col">
+           
+            	{% for i in list_of_url_memes %}
+            		<div class="mx-auto mb-8 border-b-3 border-indigo-500">
+           				<img src="{{ i }}" style="max-height:600px;max-width:500;">
+            		</div>
+           		{% endfor %}
+            </div>
+        </div>
+    </body>
+    <script src="../../static/scripts/profile_pic_display.js"></script>
+    <script src="../../static/scripts/utils.js"></script>
+</html>
